@@ -4,30 +4,44 @@ University of Plymouth
 
 ---
 
+
+
 ## **1. Introduction**  
-This repository documents a full security investigation of the **Boss of the SOC v3 (BOTSv3)** dataset using **Splunk Enterprise**. BOTSv3 simulates a realistic cyberattack on a fictional brewing company, *Frothly*, containing rich log data across:
+This repository documents a full security investigation of the Boss of the SOC v3 (BOTSv3) dataset using Splunk Enterprise. BOTSv3 simulates a realistic cyberattack against a fictional brewing company, Frothly, and provides rich, multi-source telemetry, including:
 
-- Email systems  
-- OneDrive & Office 365  
-- Endpoint logs (Windows + Linux)  
-- Network telemetry  
-- Azure & AWS cloud services  
+- Email and SMTP logs
 
-The goals of this investigation are to:
+- Microsoft 365 and OneDrive activity
 
-- Deploy and configure Splunk on Ubuntu  
-- Ingest and validate BOTSv3 logs  
-- Perform advanced SPL searches to uncover malicious activity  
-- Answer all 300-level forensics questions  
-- Produce a professional SOC-style incident report and video presentation  
+- Windows endpoint telemetry (Sysmon, Security logs)
 
-This repository also demonstrates continuous improvement with commits over multiple weeks, reflecting real SOC workflows and version control practices.
+- Linux endpoint telemetry (Osquery)
+
+- Network and authentication activity
+
+- Cloud service logs (Azure and AWS)
+
+The purpose of this investigation is to replicate a real-world Security Operations Centre (SOC) workflow by deploying Splunk, analysing malicious activity, and reconstructing the attacker’s actions across the incident lifecycle.
+
+The objectives of this project are to:
+
+- Install and configure Splunk Enterprise on an Ubuntu virtual machine
+
+- Ingest and validate the BOTSv3 dataset
+
+- Perform advanced SPL-based forensic analysis
+
+- Answer all BOTSv3 investigation questions
+
+- Correlate activity across cloud, email, endpoint, and Linux systems
+
+- Produce a professional SOC-style incident report and video presentation
 
 ---
 
 ## **2. SOC Roles & Incident Handling Reflection**  
 
-Modern SOC operations consist of several layers:
+Security Operations Centres operate using tiered analyst roles, each responsible for different stages of incident handling:
 
 | SOC Tier | Responsibilities |
 |---------|------------------|
@@ -36,7 +50,8 @@ Modern SOC operations consist of several layers:
 | **Tier 3:** Threat hunters | Malware analysis, adversary behaviour detection |
 | **IR / DFIR Team** | Containment, eradication, recovery |
 
-The BOTSv3 dataset presents events across the entire **incident lifecycle**, from initial phishing delivery to lateral movement and persistence, allowing full application of SOC practices.
+The BOTSv3 dataset spans the full incident lifecycle, from initial phishing delivery through malware execution, privilege escalation, persistence, and lateral movement.
+Our investigation reflects how SOC tiers collaborate by escalating validated findings, correlating logs across platforms, and producing evidence-driven conclusions.
 
 ---
 
@@ -69,41 +84,72 @@ Evidence screenshots stored in:
 
 ---
 
-## **4. BOTSv3 Guided Questions (300-Level Forensics)**  
+## **4. BOTSv3 Guided Questions**  
 
-This section will include:
+This section documents the investigation of all BOTSv3 300-level questions.
+For each question, the following are provided:
 
-- SPL queries  
-- Screenshots of outputs  
-- Analysis of attacker behaviour  
-- SOC relevance  
+- Analytical thought process
 
-*(To be completed after Splunk analysis.)*
+- Relevant SPL queries
+
+- Screenshots and extracted artefacts
+
+- Final answer
+
+- SOC relevance
+
+The analysis covers:
+
+- Malicious OneDrive uploads
+
+- Macro-enabled email attachments
+
+- Embedded executable execution
+
+- Linux account creation and credential abuse
+
+- Windows privilege escalation
+
+- Backdoor processes listening on leet ports
+
+- Malware hash identification
 
 ---
 
 ## **5. Conclusion**  
 
-This project demonstrates hands-on SOC analysis, applying Splunk SPL searches, endpoint forensics, and email/cloud telemetry correlation. BOTSv3 provides a realistic SOC environment for practicing incident handling and threat investigation.
+This investigation demonstrates how effective SIEM-based log correlation can uncover a complete intrusion chain. Key weaknesses identified include insufficient email filtering, weak endpoint hardening, and limited behavioural monitoring.
+
+The exercise reinforces the importance of:
+
+- Multi-source log visibility
+
+- Structured SOC escalation paths
+
+- Proactive threat hunting
+
+- Evidence-driven incident response
+
+BOTSv3 provides a realistic environment for developing professional SOC investigation skills.
 
 ---
 
 ## **6. References (IEEE)**  
-*(To be added when final report is complete.)*
+All academic and industry references are provided in IEEE format in the accompanying PDF report.
 
 ---
 
 ## **7. Video Presentation**  
-A link to the 10-minute walkthrough on YouTube will be added here.
+A 10-minute walkthrough demonstrating Splunk queries, investigative methodology, and SOC findings linked in botsv3-incident-analysis/video/presentation.md.
 
 ---
 
 ## **8. AI Use Declaration**  
 
-This project falls under the **Partnered Work** AI category, as per COMP5002 guidelines.  
-The full declaration is stored in:
-
-```
+This project follows the Partnered Work AI category in accordance with COMP5002 guidelines.
+AI tools were used for research assistance and language refinement only.
+The full declaration is available at:
 /ai-declaration/generative-ai-usage.md
-```
+
 
