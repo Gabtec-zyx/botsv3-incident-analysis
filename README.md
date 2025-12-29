@@ -140,8 +140,14 @@ All academic and industry references are provided in IEEE format in the accompan
 
 ---
 
-## **7. Video Presentation**  
-A 10-minute walkthrough demonstrating Splunk queries, investigative methodology, and SOC findings linked in botsv3-incident-analysis/video/presentation.md.
+## **7.🎥 Video Presentation (10 minutes)**  
+## 
+
+Click the thumbnail below to watch the full presentation on YouTube:
+
+[![Watch the video](https://img.youtube.com/vi/hpnucje0j9c/maxresdefault.jpg)](https://youtu.be/cgWcSxXtOtw?si=81jymHK7JQOoby8x)
+
+
 
 ---
 
